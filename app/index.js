@@ -57,6 +57,12 @@ io.on("connection", (socket) => {
     // Update users counter
     io.emit("updateCounter", count_users);
 
+    // Disconnect user
+    socket.on("disconnect", () => {
+        count_users--;
+        io.emit("updateCounter", count_users);
+    })
+
 });
 
 // Start Server
