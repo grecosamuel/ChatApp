@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.maincontent {
+    display: flex;
+    height: 90%;
+}
+
+.users-list {
+    width: 10%;
+    border: 2px solid black;
+}
+
+.text-box {
+    width: 90%;
+}
+
+
+form {
+    height: 10%;
+    display: flex;
+}
+form input[type=text] {
+    height: 100%;
+    width: 90%;
+}
+form input[type=submit]{
+    width: 10%;
+}
+
+#messages li{
+    list-style-type: none;
+    display: flex;
+
+}
+
+@media only screen and (max-width: 600px) {
+    body{
+        font-size: 20px;
+    }
+}
