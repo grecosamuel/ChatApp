@@ -71,6 +71,7 @@ io.on("connection", (socket) => {
         if (index != -1){
             online_users.splice(index, 1);
         }
+        io.emit("unjoin", user);
     });
 
     // Say hi 
