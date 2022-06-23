@@ -61,7 +61,13 @@ io.on("connection", (socket) => {
     socket.on("disconnect", () => {
         count_users--;
         io.emit("updateCounter", count_users);
-    })
+    });
+
+    // Say hi 
+    socket.on("hi", (user) => {
+        online_users.push(user);
+        io.emit("updateList", online_users);
+    });
 
 });
 
