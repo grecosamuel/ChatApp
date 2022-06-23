@@ -5,3 +5,8 @@ const io = new Server();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const users = require("./users.json");
+
+
+// Globals Vars
+let count_users = 0;
+let online_users = [];
