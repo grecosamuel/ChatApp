@@ -54,7 +54,17 @@
     socket.on("updateCounter", (count) => {
         var counter = document.getElementById("countUser");
         counter.innerHTML = count;
-    })
+    });
+
+    socket.on("updateList", (users) => {
+        let list = document.getElementById("users-ul");
+        list.innerHTML = "";
+        users.forEach( user => {
+            let newli = document.createElement("li");
+            newli.innerHTML = user;
+            list.appendChild(newli);
+        });
+    });
 
     // Functions
     function forcedisc(){
