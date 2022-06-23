@@ -68,6 +68,24 @@
         });
     });
 
+    socket.on("sender", (data) => {
+        var li = document.createElement("li");
+        var name = document.createElement("p");
+
+        name.style.fontWeight = 700;
+        name.textContent = data.user + ": ";
+
+        var dt = document.createElement("p");
+        dt.textContent = data.msg;
+
+        li.appendChild(name);
+        li.appendChild(dt);
+
+        var box = document.getElementById("messages");
+        box.appendChild(li);
+        window.scrollTo(0, document.body.scrollHeight);
+    });
+
     // Functions
     function forcedisc(){
         socket.emit("discuser", ck);

@@ -79,6 +79,11 @@ io.on("connection", (socket) => {
         io.emit("updateList", online_users);
     });
 
+    // Send data
+    socket.on("sender", (data) => {
+        io.emit("sender", data);
+    });
+
 });
 
 // Start Server
