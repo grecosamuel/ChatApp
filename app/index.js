@@ -18,3 +18,31 @@ const server = http.createServer(app);
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static("public"))
 app.use(cookieParser());
+
+// Routes
+app.get("/", (req, res) => {
+
+    let { username } = req.cookies;
+    if (username === undefined) {
+        res.sendFile(__dirname + "/access_room.html");
+    }
+    else {
+        users.push(username);
+        res.sendFile(__dirname + "/index.html");
+    }
+
+});
+
+app.post("/setusername", (req, res) => {
+    let { chooseUsername } = req.body;
+    if (chooseUsername !== undefined) {
+        res.cookie("username", chooseUsername);
+        res.redirect("/");
+    }
+});
+
+app.get("/exit",  (req, res) => {
+    let { username } = req.cookies;
+    res.clearCookie("username");
+    res.redirect("/");
+});
