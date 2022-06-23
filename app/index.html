@@ -57,6 +57,11 @@
     })
 
     // Functions
+    function forcedisc(){
+        socket.emit("discuser", ck);
+        socket.disconnect();
+    }
+
     function setCookie(name,value,days) {
     var expires = "";
     if (days) {
