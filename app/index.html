@@ -32,7 +32,21 @@
 <script src="/socket.io/socket.io.js"></script>
 <script>
 
+    // DOM Elements
+    var form = document.getElementById("myform");
+    var input = document.getElementById("myinput");
+    var ck = getCookie("username");
+
     // Init socket
     var socket = io();
 
+
+    // Form handler
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (input.value) {
+            socket.emit('sender', {user: ck, msg: input.value});
+            input.value = '';
+        }
+    });
 </script>
