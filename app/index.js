@@ -50,6 +50,11 @@ app.get("/exit",  (req, res) => {
 // IO Config 
 io.listen(server);
 
+// IO Events 
+io.on("connection", (socket) => {
+
+});
+
 // Start Server
 server.listen(PORT, () => {
     console.log(`Server started on port ${PORT}...`);
