@@ -49,3 +49,8 @@ app.get("/exit",  (req, res) => {
 
 // IO Config 
 io.listen(server);
+
+// Start Server
+server.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}...`);
+});
