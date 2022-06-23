@@ -61,6 +61,16 @@ io.on("connection", (socket) => {
     socket.on("disconnect", () => {
         count_users--;
         io.emit("updateCounter", count_users);
+        io.emit("updateList", online_users);
+
+    });
+
+    // Disc User
+    socket.on("discuser", (user) => {
+        let index = online_users.indexOf(user);
+        if (index != -1){
+            online_users.splice(index, 1);
+        }
     });
 
     // Say hi 
