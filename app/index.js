@@ -52,6 +52,12 @@ io.listen(server);
 
 // IO Events 
 io.on("connection", (socket) => {
+    
+    // Increase users counter
+    count_users++;
+
+    // Update users counter
+    io.emit("updateCounter", count_users);
 
 });
 
