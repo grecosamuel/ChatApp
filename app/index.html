@@ -40,6 +40,8 @@
     // Init socket
     var socket = io();
 
+    socket.emit("hi", ck);
+
 
     // Form handler
     form.addEventListener("submit", (e) => {
