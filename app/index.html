@@ -50,6 +50,12 @@
         }
     });
 
+    // Socket IO Events
+    socket.on("updateCounter", (count) => {
+        var counter = document.getElementById("countUser");
+        counter.innerHTML = count;
+    })
+
     // Functions
     function setCookie(name,value,days) {
     var expires = "";
@@ -60,7 +66,7 @@
     }
     document.cookie = name + "=" + (value || "")  + expires + "; path=/";
     }
-    
+
     function getCookie(name) {
         var nameEQ = name + "=";
         var ca = document.cookie.split(';');
