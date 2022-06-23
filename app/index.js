@@ -4,7 +4,6 @@ const { Server } = require("socket.io");
 const io = new Server();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const users = require("./users.json");
 
 
 // Globals Vars
@@ -27,7 +26,6 @@ app.get("/", (req, res) => {
         res.sendFile(__dirname + "/access_room.html");
     }
     else {
-        users.push(username);
         res.sendFile(__dirname + "/index.html");
     }
 
