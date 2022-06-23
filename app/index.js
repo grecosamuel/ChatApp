@@ -46,3 +46,6 @@ app.get("/exit",  (req, res) => {
     res.clearCookie("username");
     res.redirect("/");
 });
+
+// IO Config 
+io.listen(server);
