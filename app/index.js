@@ -67,10 +67,14 @@ io.on("connection", (socket) => {
 
     // Disc User
     socket.on("discuser", (user) => {
+        console.log(`Current list : ${online_users}`);
+        console.log(`Try to remove ${user}`)
         let index = online_users.indexOf(user);
+        console.log(`Index found ${index}`);
         if (index != -1){
             online_users.splice(index, 1);
         }
+        console.log(`New list: ${online_users}`);
         io.emit("unjoin", user);
     });
 
