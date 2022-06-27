@@ -21,6 +21,12 @@
                 </ul>
             </div>
 
+            <div>
+                <p id="info">
+
+                </p>
+            </div>
+
         </div>
         <form id="myform" action="" method="POST">
             <input id="myinput" type="text" placeholder="Write a message..."/>
@@ -54,9 +60,22 @@
 
     // Input handler
     input.addEventListener('input', (e) => {
+        socket.emit("user_typing", ck);
     });
 
+
+    // Clear typing box
+    setInterval(() => {
+        let info = document.getElementById("info");
+        if (info.textContent != "") info.textContent = "";
+    }, 1000);
+
     // Socket IO Events
+    socket.on("typing", (user) => {
+        let paragraph = document.getElementById("info");
+        paragraph.textContent = user  + " typing...";
+    });
+
     socket.on("updateCounter", (count) => {
         var counter = document.getElementById("countUser");
         counter.innerHTML = count;
