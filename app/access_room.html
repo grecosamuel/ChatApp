@@ -2,16 +2,22 @@
     <head>
 
     </head>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-    </style>
+    
+
+    <link rel="stylesheet" type="text/css" href="/style/access_room.css">
     <body>
-        <form action="/setusername" method="POST">
-            <input type="text" name="chooseUsername" placeholder="Username">
-            <input type="submit" value="JOIN">
-        </form>
+        <div class="info_sec">
+            <h2>
+                Join Room
+            </h2>
+        </div>
+
+        <div class="form_sec">
+            <form action="/setusername" method="POST">
+                <input type="text" name="chooseUsername" placeholder="Username">
+                <input type="submit" value="JOIN">
+            </form>
+        </div>
+
     </body>
 </html>

@@ -78,6 +78,7 @@ io.on("connection", (socket) => {
     socket.on("hi", (user) => {
         online_users.push(user);
         io.emit("updateList", online_users);
+        socket.broadcast.emit("join", user);
     });
 
     // Send data
